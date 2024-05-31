@@ -32,27 +32,25 @@ The project was created to address the most common issues related to geocaching 
   
    - For one-time generation:
   
-    ```zsh
+  ```zsh
     dart run build_runner build
-    ```
+  ```
   
-    **OR**
+  **OR**
     
    - For watch mode and continous necessary rebuilds after every change to connected files (usufull for development):
   
     
     
-    ```zsh
+   ```zsh
     dart run build_runner watch
-    ```
+   ```
     
    - If something doesn't build correctly, this might help:
-  
-      
-      
-    ```zsh
+   
+  ```zsh
     dart run build_runner build -d
-    ```
+  ```
 
 2.  ### It's now possible to run or build the app in the usual way
     _Rebuilds are necessary after any updates or changes to affected files (`watch` command does it for you)_

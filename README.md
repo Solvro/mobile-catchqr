@@ -1,4 +1,5 @@
 # CatchQR
+![Project image](https://github.com/Solvro/mobile-catchqr/blob/main/catch-qr-solvro.png?raw=true)
 
 ## PL
 

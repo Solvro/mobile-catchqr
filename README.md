@@ -50,4 +50,10 @@ dart run build_runner build -d
 _Rebuilds are necessary after any updates or changes to affected files (`watch` command does it for you)_
 
 
+## Working with git
+
+### Github Solvro Handbook 🔥
+
+https://docs.google.com/document/d/1Sb5lYqYLnYuecS1Essn3YwietsbuLPCTsTuW0EMpG5o/edit?usp=sharing
+
   

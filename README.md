@@ -27,7 +27,7 @@ The project was created to address the most common issues related to geocaching 
 
 ## 1. Code generation
 
-    Some of the app's dependencies utilize the code generation feature, and generated files **are not currently included** to control versioning in this GitHub repository. Therefore, before building, running, or developing the application, it's crucial to run code generation (to generate all needed files) in the terminal with:
+Some of the app's dependencies utilize the code generation feature, and generated files **are not currently included** to control versioning in this GitHub repository. Therefore, before building, running, or developing the application, it's crucial to run code generation (to generate all needed files) in the terminal with:
   
 ### For one-time generation:
   

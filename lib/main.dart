@@ -1,3 +1,4 @@
+import 'package:catchqr/utils/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -98,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               locale: const Locale('pl'),
               child: Builder(
                 builder: (context) {
-                  return Text(AppLocalizations.of(context)!.helloWorld);
+                  return Text(context.localize.hello_world);
                 }
               ),
             ),

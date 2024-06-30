@@ -31,3 +31,7 @@ class SmallBoldTextStyle extends BoldBodyTextStyle {
 class SmallTextStyle extends BodyTextStyle {
   const SmallTextStyle({super.color}) : super(fontSize: 14);
 }
+
+class MediumBoldTextStyle extends BoldBodyTextStyle {
+  const MediumBoldTextStyle({super.color}) : super(fontSize: 16);
+}

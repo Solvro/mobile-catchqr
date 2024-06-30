@@ -1,9 +1,12 @@
+import 'package:catchqr/config/recently_active_config.dart';
 import 'package:catchqr/theme/app_theme.dart';
 import 'package:catchqr/utils/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class RecentlyActiveWidget extends StatelessWidget {
   const RecentlyActiveWidget({super.key});
+
+  final int itemCount = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +20,11 @@ class RecentlyActiveWidget extends StatelessWidget {
         const SizedBox(height: 15),
         Expanded(
           child: ListView.separated(
-            itemCount: 5,
+            itemCount: itemCount,
             separatorBuilder: (context, index) => const SizedBox(height: 8),
             itemBuilder: (context, index) {
               return RecentlyActiveGameWidget(
-                gameName: 'Gra $index',
+                gameName: '${context.localize.game} $index',
                 onTap: () {
                   // Navigate to the game
                 },
@@ -41,7 +44,7 @@ class RecentlyActiveGameWidget extends StatelessWidget {
   });
 
   final String gameName;
-  final Function() onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +60,19 @@ class RecentlyActiveGameWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: RecentlyActiveConfig.padding,
               child: Text(
                 gameName,
                 style: context.textTheme.smallBoldText,
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: RecentlyActiveConfig.padding,
               decoration: BoxDecoration(
-                color: context.colorTheme.grey.withOpacity(0.13),
+                color: context.colorTheme.grey.withOpacity(0.08),
                 borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(7),
-                  bottomRight: Radius.circular(7),
+                  topRight: RecentlyActiveConfig.radius,
+                  bottomRight: RecentlyActiveConfig.radius,
                 ),
               ),
               child: Center(

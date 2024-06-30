@@ -13,4 +13,7 @@ abstract class ColorsConsts{
 
   // Mirage #293241
   static const blackMirage = Color(0xff293241);
+
+  // Gray 
+  static const grey = Color(0xff77859D);
 }

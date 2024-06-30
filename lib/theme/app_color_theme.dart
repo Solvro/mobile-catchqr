@@ -4,7 +4,7 @@ import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
 
 part 'app_color_theme.tailor.dart';
 
-@tailorMixinComponent
+@TailorMixinComponent()
 class AppColorTheme extends ThemeExtension<AppColorTheme>
     with _$AppColorThemeTailorMixin {
   const AppColorTheme({
@@ -12,6 +12,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme>
     this.whiteSoap = ColorsConsts.whiteSoap,
     this.orangePomegranade = ColorsConsts.orangePomegranade,
     this.greyLight = ColorsConsts.greyLight,
+    this.grey = ColorsConsts.grey,
   });
   
   @override
@@ -25,4 +26,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme>
 
   @override
   final Color greyLight;
+
+  @override
+  final Color grey;
 }

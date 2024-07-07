@@ -1,3 +1,4 @@
+import 'package:catchqr/config/app_ui_config.dart';
 import 'package:catchqr/config/recently_active_config.dart';
 import 'package:catchqr/theme/app_theme.dart';
 import 'package:catchqr/utils/context_extensions.dart';
@@ -10,28 +11,30 @@ class RecentlyActiveWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          context.localize.recently_active,
-          style: context.textTheme.headline,
-        ),
-        const SizedBox(height: 15),
-        Expanded(
-          child: ListView.separated(
-            itemCount: itemCount,
-            separatorBuilder: (context, index) => const SizedBox(height: 8),
-            itemBuilder: (context, index) {
-              return RecentlyActiveGameWidget(
-                gameName: '${context.localize.game} $index',
-                onTap: () {
-                  // Navigate to the game
-                },
-              );
-          }),
-        ),
-      ],
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            context.localize.recently_active,
+            style: context.textTheme.headline,
+          ),
+          const SizedBox(height: 15),
+          Expanded(
+            child: ListView.separated(
+              itemCount: itemCount,
+              separatorBuilder: (context, index) => const SizedBox(height: 8),
+              itemBuilder: (context, index) {
+                return RecentlyActiveGameWidget(
+                  gameName: '${context.localize.game} $index',
+                  onTap: () {
+                    // Navigate to the game
+                  },
+                );
+            }),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -53,7 +56,7 @@ class RecentlyActiveGameWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: context.colorTheme.greyLight,
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,8 +74,8 @@ class RecentlyActiveGameWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: context.colorTheme.grey.withOpacity(0.08),
                 borderRadius: const BorderRadius.only(
-                  topRight: RecentlyActiveConfig.radius,
-                  bottomRight: RecentlyActiveConfig.radius,
+                  topRight: AppUiConfig.radius,
+                  bottomRight: AppUiConfig.radius,
                 ),
               ),
               child: Center(

@@ -1,4 +1,4 @@
-import 'package:catchqr/features/home_view/home_view.dart';
+import 'package:catchqr/features/greeting_screen/greeting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

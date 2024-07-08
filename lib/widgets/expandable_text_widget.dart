@@ -3,38 +3,37 @@ import 'package:catchqr/theme/app_theme.dart';
 import 'package:catchqr/utils/context_extensions.dart';
 import 'package:flutter/material.dart';
 
-class ExpandableTextWidget extends StatefulWidget {
+class ExpandableTextWidget extends StatelessWidget {
   final int maxLinesToShow;
   final String content;
 
-  const ExpandableTextWidget({
+  ExpandableTextWidget({
     super.key,
     required this.content,
     required this.maxLinesToShow,
   });
 
-  @override
-  State<ExpandableTextWidget> createState() => _ExpandableTextWidgetState();
-}
-
-class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   final ValueNotifier<bool> _expanded = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
 
     final TextSpan textSpan = TextSpan(
-      text: widget.content,
+      text: content,
       style: context.textTheme.smallText
     );
 
     final TextPainter textPainter = TextPainter(
       text: textSpan,
-      maxLines: _expanded.value ? null : widget.maxLinesToShow,
+      maxLines: _expanded.value ? null : maxLinesToShow,
       textDirection: TextDirection.ltr,
     );
 
     textPainter.layout(maxWidth: MediaQuery.of(context).size.width);
+
+    void onSeeMoreLessTap() {
+      _expanded.value = !_expanded.value;
+    }
 
     final int numberOfLines = textPainter.computeLineMetrics().length;
     return ValueListenableBuilder(
@@ -49,48 +48,13 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                 color: context.colorTheme.greyLight,
                 borderRadius: AppUiConfig.borderRadious,
               ),
-              child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  if (!_expanded.value && numberOfLines >= widget.maxLinesToShow) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.content,
-                          maxLines: widget.maxLinesToShow,
-                          overflow: TextOverflow.ellipsis,
-                          style: context.textTheme.smallText,
-                        ),
-                        SeeMoreLessWidget(
-                          textData: context.localize.see_more,
-                          isSeeMore: true,
-                          onSeeMoreLessTap: () {
-                            _expanded.value = true;
-                          },
-                        ),
-                      ],
-                    );
-                  } else {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.content,
-                          style: context.textTheme.smallText,
-                        ),
-                        if (_expanded.value && numberOfLines >= widget.maxLinesToShow)
-                          SeeMoreLessWidget(
-                            textData: context.localize.see_less,
-                            isSeeMore: false,
-                            onSeeMoreLessTap: () {
-                              _expanded.value = false;
-                            },
-                          ),
-                      ],
-                    );
-                  }
-                },
-              ),
+              child: _SeeMoreLessWidget(
+                isSeeMore:_expanded.value,
+                onSeeMoreLessTap: onSeeMoreLessTap,
+                content: content,
+                maxLinesToShow: maxLinesToShow,
+                numberOfLines: numberOfLines,
+              )
             ),
           ],
         );
@@ -99,54 +63,62 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
   }
 }
 
-class SeeMoreLessWidget extends StatelessWidget {
-  final String textData;
+class _SeeMoreLessWidget extends StatelessWidget {
   final bool isSeeMore;
   final VoidCallback onSeeMoreLessTap;
+  final String content;
+  final int maxLinesToShow;
+  final int numberOfLines;
 
-  const SeeMoreLessWidget({
-    super.key,
-    required this.textData,
+  const _SeeMoreLessWidget({
     required this.isSeeMore,
     required this.onSeeMoreLessTap,
+    required this.content,
+    required this.maxLinesToShow,
+    required this.numberOfLines,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 12.0),
-        child: InkWell(
-          onTap: () => onSeeMoreLessTap(),
-          child: Text.rich(
-            softWrap: true,
-            style: context.textTheme.smallPomegradeText,
-            textAlign: TextAlign.start,
-            TextSpan(
-              text: "",
-              children: [
-                TextSpan(
-                  text: textData,
-                  style:context.textTheme.smallPomegradeText,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          content,
+          maxLines: isSeeMore ? null : maxLinesToShow,
+          overflow: isSeeMore ? null : TextOverflow.ellipsis,
+          style: context.textTheme.smallText,
+        ),
+        if(numberOfLines >= maxLinesToShow)
+          Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: InkWell(
+                onTap: () => onSeeMoreLessTap(),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      isSeeMore ? context.localize.see_less : context.localize.see_more,
+                      style: context.textTheme.smallPomegradeText,
+                      softWrap: true,
+                      textAlign: TextAlign.start,
+                    ),
+                    const SizedBox(
+                      width: 3.0,
+                    ),
+                    Icon(
+                      isSeeMore ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                      color: context.colorTheme.orangePomegranade,
+                      size: 17.5,
+                    ),
+                  ],
                 ),
-                const WidgetSpan(
-                  child: SizedBox(
-                    width: 3.0,
-                  ),
-                ),
-                WidgetSpan(
-                  child: Icon(
-                    isSeeMore ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
-                    color: context.colorTheme.orangePomegranade,
-                    size: 17.5,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+      ],
     );
   }
 }

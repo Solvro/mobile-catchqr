@@ -31,11 +31,12 @@ class ExpandableTextWidget extends StatelessWidget {
 
     textPainter.layout(maxWidth: MediaQuery.of(context).size.width);
 
+    final int numberOfLines = textPainter.computeLineMetrics().length;
+
     void onSeeMoreLessTap() {
       _expanded.value = !_expanded.value;
     }
 
-    final int numberOfLines = textPainter.computeLineMetrics().length;
     return ValueListenableBuilder(
       valueListenable: _expanded,
       builder: (context, values, _) {

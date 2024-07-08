@@ -56,7 +56,7 @@ class RecentlyActiveGameWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: context.colorTheme.greyLight,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: AppUiConfig.borderRadious,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

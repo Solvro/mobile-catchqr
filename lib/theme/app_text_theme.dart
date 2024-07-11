@@ -15,6 +15,7 @@ class AppTextTheme extends ThemeExtension<AppTextTheme>
     
     // SmallText 14px, w400
     this.smallText = const SmallTextStyle(),
+    this.smallPomegradeText = const SmallTextStyle(color: ColorsConsts.orangePomegranade),
 
     // SmallBoldText 14px, w500
     this.smallBoldText = const SmallBoldTextStyle(),
@@ -24,16 +25,18 @@ class AppTextTheme extends ThemeExtension<AppTextTheme>
     this.mediumGrayBoldText = const MediumBoldTextStyle(color: ColorsConsts.greyLight)
   });
   
-  
   @override
   final TextStyle headline;
   @override
   final TextStyle smallText;
+  @override
+  final TextStyle smallPomegradeText;
   @override
   final TextStyle smallBoldText;
   @override
   final TextStyle mediumBoldText;
   @override
   final TextStyle mediumGrayBoldText;
+  
   
 }

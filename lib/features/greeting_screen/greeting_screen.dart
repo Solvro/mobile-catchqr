@@ -1,5 +1,5 @@
-import 'package:catchqr/features/greeting_screen/widgets/informations_about_app_widget.dart';
-import 'package:catchqr/features/greeting_screen/widgets/recetly_active_widget.dart';
+import 'widgets/informations_about_app_widget.dart';
+import 'widgets/recetly_active_widget.dart';
 import 'package:flutter/material.dart';
 
 class GreetingScreen extends StatelessWidget {

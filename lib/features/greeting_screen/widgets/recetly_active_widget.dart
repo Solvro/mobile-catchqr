@@ -1,7 +1,7 @@
-import 'package:catchqr/config/app_ui_config.dart';
-import 'package:catchqr/config/recently_active_config.dart';
-import 'package:catchqr/theme/app_theme.dart';
-import 'package:catchqr/utils/context_extensions.dart';
+import '../../../config/app_ui_config.dart';
+import '../../../config/recently_active_config.dart';
+import '../../../theme/app_theme.dart';
+import '../../../utils/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class RecentlyActiveWidget extends StatelessWidget {

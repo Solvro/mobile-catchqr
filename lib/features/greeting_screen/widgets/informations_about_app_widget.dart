@@ -1,6 +1,6 @@
-import 'package:catchqr/theme/app_theme.dart';
-import 'package:catchqr/utils/context_extensions.dart';
-import 'package:catchqr/widgets/expandable_text_widget.dart';
+import '../../../theme/app_theme.dart';
+import '../../../utils/context_extensions.dart';
+import '../../../widgets/expandable_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class InformationsAboutAppWidget extends StatelessWidget {

@@ -9,22 +9,24 @@ part 'app_text_theme.tailor.dart';
 @tailorMixinComponent
 class AppTextTheme extends ThemeExtension<AppTextTheme>
     with _$AppTextThemeTailorMixin {
-  const AppTextTheme({
-    // Headline 19px, w500
-    this.headline = const HeadlineTextStyle(),
-    
-    // SmallText 14px, w400
-    this.smallText = const SmallTextStyle(),
-    this.smallPomegradeText = const SmallTextStyle(color: ColorsConsts.orangePomegranade),
+  const AppTextTheme(
+      {
+      // Headline 19px, w500
+      this.headline = const HeadlineTextStyle(),
 
-    // SmallBoldText 14px, w500
-    this.smallBoldText = const SmallBoldTextStyle(),
+      // SmallText 14px, w400
+      this.smallText = const SmallTextStyle(),
+      this.smallPomegradeText =
+          const SmallTextStyle(color: ColorsConsts.orangePomegranate),
 
-    // MediumBoldText 16px, w500
-    this.mediumBoldText = const MediumBoldTextStyle(),
-    this.mediumGrayBoldText = const MediumBoldTextStyle(color: ColorsConsts.greyLight)
-  });
-  
+      // SmallBoldText 14px, w500
+      this.smallBoldText = const SmallBoldTextStyle(),
+
+      // MediumBoldText 16px, w500
+      this.mediumBoldText = const MediumBoldTextStyle(),
+      this.mediumGrayBoldText =
+          const MediumBoldTextStyle(color: ColorsConsts.greyLight)});
+
   @override
   final TextStyle headline;
   @override
@@ -37,6 +39,4 @@ class AppTextTheme extends ThemeExtension<AppTextTheme>
   final TextStyle mediumBoldText;
   @override
   final TextStyle mediumGrayBoldText;
-  
-  
 }

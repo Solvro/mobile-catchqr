@@ -5,5 +5,10 @@
     "see_less": "Zobacz mniej",
     "informations_about_app": "Informacje o aplikacji",
     "informations_about_app_content": "Witaj w CatchQR, niesamowitej aplikacji zrealizowanej przez KNSolvro. CatchQR to innowacyjna platforma zaprojektowana specjalnie do gier terenowych, które łączą fizyczne odkrywanie świata z nowoczesną technologią QR kodów.",
-    "game_description": "Opis Gry"
+    "game_description": "Opis Gry",
+    "start_game": "Rozpocznij",
+    "join_game": "Dołącz do gry",
+    "your_team": "Twoja drużyna",
+    "enter_code": "Wpisz kod",
+    "enter_team_name": "Wpisz nazwę drużyny"
 }

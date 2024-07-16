@@ -18,4 +18,10 @@ abstract class ColorsConsts {
 
   // Gray #B9BCC1
   static const greyHintColor = Color(0xffb9bcc1);
+
+  static const toPWRGradient = LinearGradient(colors: [
+    Color(0xfff67448),
+    Color(0xffee6644),
+    Color(0xffdf371b),
+  ]);
 }

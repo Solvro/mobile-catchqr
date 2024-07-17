@@ -11,30 +11,28 @@ class RecentlyActiveWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            context.localize.recently_active,
-            style: context.textTheme.headline,
-          ),
-          const SizedBox(height: 15),
-          Expanded(
-            child: ListView.separated(
-              itemCount: itemCount,
-              separatorBuilder: (context, index) => const SizedBox(height: 8),
-              itemBuilder: (context, index) {
-                return RecentlyActiveGameWidget(
-                  gameName: '${context.localize.game} $index',
-                  onTap: () {
-                    // Navigate to the game
-                  },
-                );
-            }),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          context.localize.recently_active,
+          style: context.textTheme.headline,
+        ),
+        const SizedBox(height: 15),
+        ListView.separated(
+          itemCount: itemCount,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          separatorBuilder: (context, index) => const SizedBox(height: 8),
+          itemBuilder: (context, index) {
+            return RecentlyActiveGameWidget(
+              gameName: '${context.localize.game} $index',
+              onTap: () {
+                // Navigate to the game
+              },
+            );
+        }),
+      ],
     );
   }
 }

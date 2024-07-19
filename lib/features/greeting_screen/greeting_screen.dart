@@ -5,21 +5,8 @@ import '../../widgets/join_game_widget.dart';
 import 'widgets/informations_about_app_widget.dart';
 import 'widgets/recetly_active_widget.dart';
 
-class GreetingScreen extends StatefulWidget {
+class GreetingScreen extends StatelessWidget {
   const GreetingScreen({super.key});
-
-  @override
-  State<GreetingScreen> createState() => _GreetingScreenState();
-}
-
-class _GreetingScreenState extends State<GreetingScreen> {
-  final TextEditingController _codeController = TextEditingController();
-
-  @override
-  void dispose() {
-    _codeController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +23,7 @@ class _GreetingScreenState extends State<GreetingScreen> {
               JoinGameWidget(
                 title: context.localize.join_game,
                 description: context.localize.enter_code,
-                controller: _codeController,
-                pressFunction: () {
-                  print("entering game functionality");
-                },
+                pressFunction: () {},
               ),
               const SizedBox(height: 20),
               const RecentlyActiveWidget(),

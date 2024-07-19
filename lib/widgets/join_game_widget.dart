@@ -10,13 +10,11 @@ class JoinGameWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      required this.controller,
       required this.pressFunction});
 
   final String title;
   final String description;
-  final TextEditingController controller;
-  final void Function() pressFunction;
+  final VoidCallback pressFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,6 @@ class JoinGameWidget extends StatelessWidget {
         height: 18.0,
       ),
       TextField(
-        controller: controller,
         decoration: InputDecoration(
           filled: true,
           fillColor: context.colorTheme.greyLight,

@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   theme_tailor_annotation: ^3.0.1
   url_launcher: ^6.3.0
+  flutter_svg: ^2.0.10+1
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -71,9 +72,8 @@ flutter:
         - asset: assets/fonts/Rubik-VariableFont_wght.ttf
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+     - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

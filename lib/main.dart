@@ -1,7 +1,7 @@
-import 'package:catchqr/features/greeting_screen/greeting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'features/home_screen/home_screen.dart';
 import 'theme/app_theme.dart';
 
 void main() {
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         extensions: const [AppTheme()],
         colorScheme: const ColorScheme.light().copyWith(
-            surface: Colors.white,
-          ),
+          surface: Colors.white,
+        ),
       ),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const GreetingScreen(),
+      home: HomeScreen(),
     );
   }
 }

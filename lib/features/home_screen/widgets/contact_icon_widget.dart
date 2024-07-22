@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../config/app_ui_config.dart';
 import '../../../theme/app_theme.dart';
+import '../../../utils/launch_url_util.dart';
 
 class ContactIconWidget extends StatelessWidget {
-  const ContactIconWidget({super.key, required this.url});
+  const ContactIconWidget(
+      {super.key, required this.url, required this.socialMediaName});
 
   final String url;
+  final String socialMediaName;
 
   @override
   Widget build(BuildContext context) {
-    final Uri _url = Uri.parse('https://flutter.dev');
-
     return GestureDetector(
-      onTap: () async {
-        if (!await launchUrl(_url)) {
-          throw Exception('Could not launch $_url');
+      onTap: () {
+        String formattedUrl = url;
+        if (socialMediaName == "mail") {
+          final Uri params = Uri(
+            scheme: 'mailto',
+            path: url,
+          );
+          formattedUrl = params.toString();
         }
+        LaunchUrlUtil.launch(formattedUrl);
       },
       child: Container(
         decoration: BoxDecoration(
           color: context.colorTheme.greyLight,
           borderRadius: AppUiConfig.borderRadious,
         ),
-        child: Icon(
-          Icons.ac_unit,
-          color: context.colorTheme.orangePomegranade,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SvgPicture.asset("assets/icons/$socialMediaName.svg"),
         ),
       ),
     );

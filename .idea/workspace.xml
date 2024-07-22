@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98bd75d4-0541-4f55-8632-d1f35fba681b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_icon_widget.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_widget.dart" afterDir="false" />
+    <list default="true" id="98bd75d4-0541-4f55-8632-d1f35fba681b" name="Changes" comment="Fix issues related to join game widget">
+      <change afterPath="$PROJECT_DIR$/assets/icons/facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/mail.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/webpage.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/constants/social_media.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/home_screen/home_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/launch_url_util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/l10n/app_pl.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_pl.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_icon_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_icon_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home_screen/widgets/contact_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +70,12 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ania\VisualStudioCode\Solvro\mobile-catchqr\assets\icons" />
+      <recent name="C:\Users\Ania\VisualStudioCode\Solvro\mobile-catchqr\lib\features\home_screen" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,6 +85,14 @@
       <option name="presentableId" value="Default" />
       <updated>1720988484891</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fix issues related to join game widget">
+      <created>1721418969582</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721418969582</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -76,5 +100,9 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix issues related to join game widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix issues related to join game widget" />
   </component>
 </project>

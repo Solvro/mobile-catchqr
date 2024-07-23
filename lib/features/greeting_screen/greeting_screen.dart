@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/context_extensions.dart';
 import '../../widgets/join_game_widget.dart';
 import '../../widgets/logo_header.dart';
+import '../home_screen/widgets/game_description_widget.dart';
 import 'widgets/informations_about_app_widget.dart';
 import 'widgets/recetly_active_widget.dart';
 
@@ -15,6 +17,7 @@ class GreetingScreen extends StatefulWidget {
 
 class _GreetingScreenState extends State<GreetingScreen> {
   final TextEditingController _codeController = TextEditingController();
+  bool isHomeHeader = true;
 
   @override
   void dispose() {
@@ -29,9 +32,9 @@ class _GreetingScreenState extends State<GreetingScreen> {
         child: CustomScrollView(
           slivers: [
             SliverPersistentHeader(
-              delegate: LogoHeader(
+              delegate: isHomeHeader ? LogoHeader(
                 onTap: () {},
-              ),
+              ) : LogoHeader.rounded(() {}),
               pinned: true,
             ),
             SliverToBoxAdapter(
@@ -52,9 +55,15 @@ class _GreetingScreenState extends State<GreetingScreen> {
                       ),
                       const SizedBox(height: 20),
                       const RecentlyActiveWidget(),
-                      const SizedBox(
-                        height: 1000,
-                      ), //Needed to check scroll properly
+                      if (kDebugMode)
+                        _DebugWidgets(
+                          isHomeHeader: isHomeHeader,
+                          onSwitch: (val) {
+                            setState(() {
+                              isHomeHeader = val;
+                            });
+                          },
+                        ),
                     ],
                   )),
             )
@@ -62,5 +71,27 @@ class _GreetingScreenState extends State<GreetingScreen> {
         ),
       ),
     ); // Everything here is temporary (to show widgets)
+  }
+}
+
+class _DebugWidgets extends StatelessWidget {
+  const _DebugWidgets({required this.isHomeHeader, required this.onSwitch});
+
+  final bool isHomeHeader;
+  final Function(bool) onSwitch;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          title: const Text('Switch header'),
+          trailing: Switch(value: isHomeHeader, onChanged: onSwitch),
+        ),
+        const SizedBox(
+          height: 1000,
+        ), //Needed to check scroll properly
+      ],
+    );
   }
 }

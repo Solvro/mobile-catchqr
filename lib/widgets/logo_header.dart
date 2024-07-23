@@ -24,85 +24,72 @@ class LogoHeader extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final Alignment buttonAlignment;
 
-  ///Most of the function uses `shrinkOffset` to know exactly how much user scrolled down from the
-  ///header. In logo position `shrinkOffset` is used to calculate fade and position on the screen,
-  ///when in background widget it's used to calculate margin, so it would touch elements below,
-  ///since logo will go up.
-
-  //General
   bool get _isRounded => buttonAlignment == Alignment.topLeft;
-
-  double _opacityFadeVal(double shrinkOffset) => 1 - shrinkOffset / expandedHeight;
-
-  //Logo related
-  double _logoTopPosition(double shrinkOffset) {
-    if (_isRounded) {
-      return expandedHeight / 3.5 - shrinkOffset;
-    } else {
-      return expandedHeight / 3 - shrinkOffset;
-    }
-  }
-
-  double _logoLeftPosition(BuildContext context) {
-    if (_isRounded) {
-      return MediaQuery.of(context).size.width * 0.3;
-    } else {
-      return MediaQuery.of(context).size.width / 4;
-    }
-  }
-
-  double _logoSize(BuildContext context) {
-    if (_isRounded) {
-      return MediaQuery.of(context).size.width * 0.4;
-    } else {
-      return MediaQuery.of(context).size.width / 2;
-    }
-  }
-
-  //Background related
-  double get _bgHeight => expandedHeight * 0.7;
-
-  double _bgBottomMargin(double shrinkOffset) =>
-      clampDouble(expandedHeight * 0.3 - shrinkOffset, 0, double.infinity);
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+
+    ///Most of the variables uses `shrinkOffset` to know exactly how much user scrolled down from
+    /// the header. In logo position `shrinkOffset` is used to calculate fade and position on the
+    /// screen, when in background widget it's used to calculate margin, so it would touch elements
+    /// below, since logo will go up.
+
+    //General
+    double opacityFadeVal = 1 - shrinkOffset / expandedHeight;
+
+    //Logo related
+    double logoTopPosition =
+        _isRounded ? expandedHeight / 3.5 - shrinkOffset : expandedHeight / 3 - shrinkOffset;
+
+    double logoLeftPosition = _isRounded
+        ? MediaQuery.of(context).size.width * 0.3
+        : MediaQuery.of(context).size.width / 4;
+
+    double logoSize = _isRounded
+        ? MediaQuery.of(context).size.width * 0.4
+        : MediaQuery.of(context).size.width / 2;
+
+    //Background related
+    double bgHeight = expandedHeight * 0.7;
+
+    double bgBottomMargin = clampDouble(expandedHeight * 0.3 - shrinkOffset, 0, double.infinity);
+
     return Stack(
       clipBehavior: Clip.none,
       fit: StackFit.expand,
       children: [
         Opacity(
-          opacity: _opacityFadeVal(shrinkOffset),
+          opacity: opacityFadeVal,
           child: Container(
-            margin: EdgeInsets.only(bottom: _bgBottomMargin(shrinkOffset)),
+            margin: EdgeInsets.only(bottom: bgBottomMargin),
             alignment: Alignment.centerLeft,
             child: Image.network(
               //TODO: replace placeholder.
               'https://i.cbc.ca/1.4357834.1542318134!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/old-man-senior-cell-phone-hand.jpg',
-              height: _bgHeight,
+              height: bgHeight,
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.none,
             ),
           ),
         ),
         Positioned(
-          top: _logoTopPosition(shrinkOffset),
-          left: _logoLeftPosition(context),
+          top: logoTopPosition,
+          left: logoLeftPosition,
           child: Opacity(
-            opacity: _opacityFadeVal(shrinkOffset),
+            opacity: opacityFadeVal,
             child: Card(
               elevation: 10,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(_isRounded ? _logoSize(context) : 34),
+                borderRadius: BorderRadius.circular(_isRounded ? logoSize : 34),
               ),
               child: Hero(
                 tag: 'logo',
                 child: Container(
-                  height: _logoSize(context),
-                  width: _logoSize(context),
+                  height: logoSize,
+                  width: logoSize,
                   decoration: BoxDecoration(
                     gradient: ColorsConsts.toPWRGradient,
-                    borderRadius: BorderRadius.circular(_isRounded ? _logoSize(context) : 34),
+                    borderRadius: BorderRadius.circular(_isRounded ? logoSize : 34),
                   ),
                   child: const Center(
                     child: Text(

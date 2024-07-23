@@ -35,24 +35,24 @@ class LogoHeader extends SliverPersistentHeaderDelegate {
     /// below, since logo will go up.
 
     //General
-    double opacityFadeVal = 1 - shrinkOffset / expandedHeight;
+    final double opacityFadeVal = 1 - shrinkOffset / expandedHeight;
 
     //Logo related
-    double logoTopPosition =
+    final double logoTopPosition =
         _isRounded ? expandedHeight / 3.5 - shrinkOffset : expandedHeight / 3 - shrinkOffset;
 
-    double logoLeftPosition = _isRounded
+    final double logoLeftPosition = _isRounded
         ? MediaQuery.of(context).size.width * 0.3
         : MediaQuery.of(context).size.width / 4;
 
-    double logoSize = _isRounded
+    final double logoSize = _isRounded
         ? MediaQuery.of(context).size.width * 0.4
         : MediaQuery.of(context).size.width / 2;
 
     //Background related
-    double bgHeight = expandedHeight * 0.7;
+    final double bgHeight = expandedHeight * 0.7;
 
-    double bgBottomMargin = clampDouble(expandedHeight * 0.3 - shrinkOffset, 0, double.infinity);
+    final double bgBottomMargin = clampDouble(expandedHeight * 0.3 - shrinkOffset, 0, double.infinity);
 
     return Stack(
       clipBehavior: Clip.none,

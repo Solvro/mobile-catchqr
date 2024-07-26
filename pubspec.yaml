@@ -52,7 +52,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   theme_tailor: ^3.0.1
   build_runner: ^2.4.11
-  flutter_gen_runner:
+  flutter_gen_runner: ^5.6.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

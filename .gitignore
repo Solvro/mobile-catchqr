@@ -143,3 +143,4 @@ app.*.symbols
 *.freezed.dart
 *.graphql.dart
 *.tailor.dart
+*.gen.dart

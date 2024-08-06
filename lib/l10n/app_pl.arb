@@ -1,4 +1,5 @@
 {
+    "@@locale": "pl",
     "recently_active": "Ostatnio aktywne gry",
     "game": "Gra",
     "see_more": "Zobacz więcej",
@@ -12,5 +13,9 @@
     "enter_code": "Wpisz kod",
     "enter_team_name": "Wpisz nazwę drużyny",
     "organizer_login": "Zaloguj się jako organizator",
-    "back": "Wróć"
+    "back": "Wróć",
+    "finished": "Ukończono",
+    "all": "Wszystkie",
+    "visited": "Odwiedzone",
+    "not_visited": "Nieodwiedzone"
 }
